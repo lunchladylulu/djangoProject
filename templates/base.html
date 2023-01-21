@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TripApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Engelbert">
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+
+<body class="body">
+<img src='{% static "myapp/logo.png" %}' alt="image" width="200px">
+    <span style="float:right;">
+        {% if user.username %}
+            <span class="large-font">Hello {{ user.username }}!</span><br>
+            <a href="{% url 'logout' %}"><button>logout</button></a>
+        {% else %}
+            <span class="large-font">Hello Guest User!</span><br>
+            <a href="{% url 'login' %}"><button>login</button></a>/<a href="{% url 'register_user' %}"><button>register</button></a>
+        {% endif %}
+    </span>
+    {% block content %}
+        <-- This is where the page content will go! -->
+    {% endblock %}
+   <div id="footer">
+
+        ©2023 Columbia Business School. All Rights Reserved
+
+    </div>
+</body>
+</html>

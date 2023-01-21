@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_superuser %}
+    <h1>Maintenance operations</h1>
+    Please select a maintenance action
+    <form action="" method="get">
+        <input type="radio" id="currencies" name="selection" value="currencies">
+        <label for="currencies">Update the list of currencies</label><br>
+        <input type="radio" id="rates" name="selection" value="rates">
+        <label for="rates">Update cross rates</label><br>
+        <input type="radio" id="fill_trip_db" name="selection" value="fill_trip_db">
+        <label for="fill_trip_db">Update the list of trips</label><br>
+        <input type="radio" id="delete_trip_db" name="selection" value="delete_trip_db">
+        <label for="delete_trip_db">Delete the list of trips</label><br>
+        <input name="update" value="SUBMIT ACTION" type="submit">
+    </form>
+{% else %}
+ACCESS DENIED!
+{% endif %}
+</body>
+</html>

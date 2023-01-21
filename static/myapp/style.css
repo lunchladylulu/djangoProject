@@ -1,0 +1,117 @@
+/*Use this sheet to manage styles*/
+h1{
+    color: rgba(255, 20, 196, 0.71);
+}
+
+.large-font { /* use with class="large-font" */
+    font-size: large;
+    color: crimson;
+}
+
+.lobster {
+ color: coral;
+ font-family: 'lobster';
+ font-size: 36px;
+}
+
+.englebert {
+    color: #fab35d;
+    font-family: 'englebert';
+    font-size: 48px;
+}
+
+table.tables {
+    border: 1px solid black
+}
+
+ Centered text
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ Container holding the image and the text
+.container1 {
+  position: relative;
+  text-align: center;
+  color: white;
+    font-family: englebert;
+    font-size: 28px
+}
+
+table.customTable {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #f3a961;
+  border-style: solid;
+  color: #000000;
+}
+
+.body{
+    background-color: #ffffff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://img.freepik.com/premium-photo/gray-calathea-lutea-leaf-patterned-background_53876-149681.jpg?w=1060")
+}
+
+.images{
+    opacity:1.0;
+    border: 5px solid #f3f3f3;
+     float: left;
+    width: 100%;
+  padding: 5px;
+}
+
+.images:hover {
+  opacity: 0.5;
+}
+
+/*.row::after {*/
+/*  content: "";*/
+/*  clear: both;*/
+/*  display: table;*/
+/*}*/
+
+jumbotron text-center{
+    background-image: url("https://wallpapercrafter.com/desktop/15991-coast-ocean-aerial-view-malibu-usa-4k.jpg");
+}
+
+/*.wrapper {*/
+/*  display: grid;*/
+/*  grid-template-columns: 2fr;*/
+/*  grid-auto-rows: 200px;*/
+/*}*/
+
+/*.box1 {*/
+/*  grid-column-start: 1;*/
+/*  grid-row-start: 1;*/
+/*  grid-row-end: 2;*/
+/*}*/
+
+/*.box2 {*/
+/*  grid-column-start: 1;*/
+/*  grid-row-start: 3;*/
+/*  grid-row-end: 4;*/
+/*}*/
+
+/*.box3 {*/
+/*  grid-column-start:1;*/
+/*  grid-row-start: 4;*/
+/*  grid-row-end: 5;*/
+/*}*/
+
+#footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 90px;
+  background-color: #D0DAEE;
+    background-image: url("https://as2.ftcdn.net/v2/jpg/03/54/94/49/1000_F_354944901_SzU5v3KbpDM0752i9d7C3gSMjFexisw1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

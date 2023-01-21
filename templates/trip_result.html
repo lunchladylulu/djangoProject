@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Engelbert">
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+
+These are your results. Results on this page must depend on the two user inputs for destination and length.
+
+<br>
+<br>
+
+<h2 class="lobster">This is your itinerary for {{ length_input }} days in {{ city_input }}</h2>
+
+        <table class="customTable">
+                <tr style="width:150%">
+                    <th>Location</th>
+                    <th>Time of Day</th>
+                    <th>Type of Activity</th>
+                    <th>Day 1</th>
+                    <th>Day 2</th>
+                    <th>Day 3</th>
+                    <th>Day 4</th>
+                </tr>
+            {% for result in trip_results %}
+            <tr>
+                <td>{{ result.city }}</td>
+                <td>{{ result.time_of_day }}</td>
+                <td>{{ result.activity_type }}</td>
+                <td>{{ result.day_1 }}</td>
+                <td>{{ result.day_2 }}</td>
+                <td>{{ result.day_3 }}</td>
+                <td>{{ result.day_4 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+
+</body>
+</html>

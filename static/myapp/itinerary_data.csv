@@ -1,0 +1,31 @@
+﻿length,city,time_of_day,activity_type,day_1,day_2,day_3,day_4
+2,Los Angeles,morning,food and drink,Coffee for Sasquatch,"The Butcher, The Baker, The Cappuccino Maker",,
+2,Los Angeles,morning,activity,"Explore Beverly Hills by car, with stop at Mulholland Scenic Overlook. Griffith Observatory",La Brea Tar Pits and Museum. Los Angeles County Museum of Art. Getty Center,,
+2,Los Angeles,afternoon,food and drink,In-N-Out Burger,Benny's Tacos Santa Monica,,
+2,Los Angeles,afternoon,activity,"Sightseeing by car, no tours: Hollywood sign, Warner Bros. Studio, Hollywood Walk of Fame, Paramount Pictures Studio, The Pink Wall","Santa Monica pier for sightseeing, biking, carnival rides, games, and beach",,
+2,Los Angeles,evening,food and drink,Chateau Marmont,Elefante,,
+2,Los Angeles,evening,activity,Juniper,The Room Santa Monica,,
+3,Los Angeles,morning,food and drink,Coffee for Sasquatch,Rest,"The Butcher, The Baker, The Cappuccino Maker",
+3,Los Angeles,moring,activity,Griffith Park hike and Griffith Observatory,Rest,"Explore Beverly Hills by car, with stop at Mulholland Scenic Overlook",
+3,Los Angeles,afternoon,food and drink,In-N-Out Burger,Benny's Tacos Santa Monica,Urth Caffe Beverly Hills,
+3,Los Angeles,afternoon,activity,"Los Angeles Zoo
+
+Sightseeing by car w/ optional tours: Hollywood sign, Warner Bros. Studio, Hollywood Walk of Fame, Paramount Pictures Studio, The Pink Wall","Santa Monica pier for sightseeing, biking, carnival rides, games, and beach","La Brea Tar Pits and Museum
+
+Los Angeles County Museum of Art
+
+Getty Center",
+3,Los Angeles,evening,food and drink,El Cid,Elefante,Chateau Marmont,
+3,Los Angeles,evening,activity,Rest,The Room Santa Monica,Juniper,
+4,Los Angeles,morning,food and drink,Coffee for Sasquatch,Rest,"The Butcher, The Baker, The Cappuccino Maker",La Boheme
+4,Los Angeles,morning,activity,Griffith Park hike and Griffith Observatory,Rest,"Explore Beverly Hills by car, with stop at Mulholland Scenic Overlook",Drive to Newport Beach
+4,Los Angeles,afternoon,food and drink,In-N-Out Burger,Benny's Tacos Santa Monica,Urth Caffe Beverly Hills,Happy hour @ Woody's Wharf
+4,Los Angeles,afternoon,activity,"Los Angeles Zoo
+
+Sightseeing by car w/ optional tours: Hollywood sign, Warner Bros. Studio, Hollywood Walk of Fame, Paramount Pictures Studio, The Pink Wall","Santa Monica pier for sightseeing, biking, carnival rides, games, and beach","La Brea Tar Pits and Museum
+
+Los Angeles County Museum of Art
+
+Getty Center","Beach day: sunbathing, swimming, kayaking, canoeing"
+4,Los Angeles,evening,food and drink,El Cid,Elefante,Chateau Marmont,Lola's Mexican Cuisine
+4,Los Angeles,evening,activity,Rest,The Room Santa Monica,Juniper,Rest

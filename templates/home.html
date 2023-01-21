@@ -1,15 +1,71 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<img src='{% static "myapp/logo.png" %}'>
-<br>
-This is my <span style="color:red">wonderful</span> page!
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron text-center">
+        <p>Find your itinerary <strong>instantly</strong> <br> with TripApp</p>
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                <h3 class="lobster">No More Planning</h3>
+                <p>See all of our itineraries</p>
 
-The current time is: {{ time_of_day }} {{ xy }}
-</body>
-</html>
+                    <div class="container1">
+                    <a href="{% url 'west_coast' %}"></a>
+                    <img class="images" src="https://fox40.com/wp-content/uploads/sites/13/2022/07/GettyImages-1308695861.jpg?strip=1" alt="CA Route 1 Highway" width="80">
+                    <div class="centered">West Coast</div>
+                    </div>
+
+                    <div class="container1">
+                    <img class="images" src="https://media.cntraveler.com/photos/63483e15ef943eff59de603a/3:2/w_3000,h_2000,c_limit/New%20York%20City_GettyImages-1347979016.jpg"
+                         alt="CA Route 1 Highway" width="80">
+                    <div class="centered">East Coast</div>
+                    </div>
+
+                    <div class="container1">
+                    <img class="images" src="https://media.istockphoto.com/id/831562900/photo/potato-crop-growth.jpg?b=1&s=170667a&w=0&k=20&c=ncUlW9qZlceYxG7A0ipVpoIIXpJCHKFMjQabCXJgKWY="
+                         width="80">
+                    <div class="centered">The Other Places</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                <h3 class="lobster">Search</h3>
+                <p> Choose your destination and trip length</p>
+                    <a href="{% url 'maintenance' %}">Do maintenance</a><br>
+
+                    <form method="get" action="/trip_result">
+                    <label for="destinations">Choose a destination:</label>
+                    <select name="destination" id="destinations">
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="San Francisco">France</option>
+                    <option value="New York">Germany</option>
+                    <option value="Chicago">Poland</option>
+                    </select>
+
+                    <label for="length">Choose a trip length:</label>
+                    <select name="length" id="length">
+                    <option value="2">2 days</option>
+                    <option value="3">3 days</option>
+                    <option value="4">4 days</option>
+                    <option value="5">5 days</option>
+                    <option value="6">6 days</option>
+                    </select>
+
+                    <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+                <div class="col-sm-4">
+
+                <h3 class="lobster">What's Coming Up</h3>
+                <p>Add your own itinerary</p>
+
+                <form method="get" action="/trip_result">
+                <input type="submit" value="Fill out our form">
+                </form>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
