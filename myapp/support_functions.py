@@ -170,3 +170,9 @@ def add_trips():
                       day_3=trip[6],
                       day_4=trip[7])
         t.save()
+
+
+
+
+
+

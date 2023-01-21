@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<form method="post" action="{% url "form_submit" %}">
 <table class="customTable">
                 <tr style="width:150%">
                     <th>Length of Trip</th>
@@ -19,203 +19,202 @@
                 </tr>
 
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_1"></label>
+                    <select name="length_1" id="length_1">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                        <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_1"></label>
+                    <select name="city_1" id="city_1">
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="morning">Morning</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="food and drink">Food and Drink</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_1"></label>
+                    <select name="time_of_day_1" id="time_of_day_1">
+                    <option value="morning">Morning</option></select></td>
+                <td>
+                    <label for="activity_type_1"></label>
+                    <select name="activity_type_1" id="activity_type_1">
+                    <option value="food and drink">Food and Drink</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_1" name="day_1_1" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_1" name="day_2_1" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_1" name="day_3_1" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>
+                <input type="text" id="day_4_1" name="day_4_1" placeholder="Enter text"></td>
             </tr>
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_2"></label>
+                    <select name="length_2" id="length_2">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                    <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_2"></label>
+                    <select name="city_2" id="city"_2>
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="morning">Morning</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="activity">Activity</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_2"></label>
+                    <select name="time_of_day_2" id="time_of_day_2">
+                    <option value="morning">Morning</option></select></td>
+                <td>
+                    <label for="activity_type_2"></label>
+                    <select name="activity_type_2" id="activity_type_2">
+                    <option value="activity">Activity</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_2" name="day_1_2" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_2" name="day_2_2" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_2" name="day_3_2" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>
+                <input type="text" id="day_4_2" name="day_4_2" placeholder="Enter text"></td>
             </tr>
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_3"></label>
+                    <select name="length_3" id="length_3">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                    <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_3"></label>
+                    <select name="city_3" id="city_3">
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="afternoon">Afternoon</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="food and drink">Food and Drink</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_3"></label>
+                    <select name="time_of_day_3" id="time_of_day_3">
+                    <option value="afternoon">Afternoon</option></select></td>
+                <td>
+                    <label for="activity_type_3"></label>
+                    <select name="activity_type_3" id="activity_type_3">
+                    <option value="food and drink">Food and Drink</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_3" name="day_1_3" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_3" name="day_2_3" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_3" name="day_3_3" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>td>
+                <input type="text" id="day_4_3" name="day_4_3" placeholder="Enter text"></td>
             </tr>
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_4"></label>
+                    <select name="length_4" id="length_4">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                    <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_4"></label>
+                    <select name="city_4" id="city_4">
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="afternoon">Afternoon</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="activity">Activity</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_4"></label>
+                    <select name="time_of_day_4" id="time_of_day_4">
+                    <option value="afternoon">Afternoon</option></select></td>
+                <td>
+                    <label for="activity_type_4"></label>
+                    <select name="activity_type_4" id="activity_type_4">
+                    <option value="activity">Activity</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_4" name="day_1_4" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_4" name="day_2_4" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_4" name="day_3_4" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>
+                <input type="text" id="day_4_4" name="day_4_4" placeholder="Enter text"></td>
             </tr>
 
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_5"></label>
+                    <select name="length_5" id="length_5">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                    <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_5"></label>
+                    <select name="city_5" id="city_5">
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="evening">Evening</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="food and drink">Food and Drink</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_5"></label>
+                    <select name="time_of_day_5" id="time_of_day_5">
+                    <option value="evening">Evening</option></select></td>
+                <td>
+                    <label for="activity_type_5"></label>
+                    <select name="activity_type_5" id="activity_type_5">
+                    <option value="food and drink">Food and Drink</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_5" name="day_1_5" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_5" name="day_2_5" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_5" name="day_3_5" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>
+                <input type="text" id="day_4_5" name="day_4_5" placeholder="Enter text"></td>
             </tr>
             <tr>
-                <td><form method="get" action=" ">
-                    <label for="length"></label>
-                    <select name="length" id="length">
+                <td>
+                    <label for="length_6"></label>
+                    <select name="length_6" id="length_6">
                     <option value=1>1 day</option>
                     <option value=2>2 days</option>
                     <option value=3>3 days</option>
-                    <option value=4>4 days</option></td>
-                <td><form method="get" action=" ">
-                    <label for="city"></label>
-                    <select name="city" id="city">
+                    <option value=4>4 days</option></select></td>
+                <td>
+                    <label for="city_6"></label>
+                    <select name="city_6" id="city_6">
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="New York">New York</option>
-                    <option value="Chicago">Chicago</option></td>
-                <td><form method="get" action=" ">
-                    <label for="time_of_day"></label>
-                    <select name="time_of_day" id="time_of_day">
-                    <option value="evenint">Evening</option></td>
-                <td><form method="get" action=" ">
-                    <label for="activity_type"></label>
-                    <select name="activity_type" id="activity_type">
-                    <option value="activity">Activity</option></td>
+                    <option value="Chicago">Chicago</option></select></td>
+                <td>
+                    <label for="time_of_day_6"></label>
+                    <select name="time_of_day_6" id="time_of_day_6">
+                    <option value="evening">Evening</option></select></td>
+                <td>
+                    <label for="activity_type_6"></label>
+                    <select name="activity_type_6" id="activity_type_6">
+                    <option value="activity">Activity</option></select></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_1" name="day_1" placeholder="Enter text"></td>
+                <input type="text" id="day_1_6" name="day_1_6" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_2" name="day_2" placeholder="Enter text"></td>
+                <input type="text" id="day_2_6" name="day_2_6" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_3" name="day_3" placeholder="Enter text"></td>
+                <input type="text" id="day_3_6" name="day_3_6" placeholder="Enter text"></td>
                 <td><label for="Name"></label>
-                <input type="text" id="day_4" name="day_4" placeholder="Enter text"></td>
+                <input type="text" id="day_4_6" name="day_4_6" placeholder="Enter text"></td>
             </tr>
         </table>
-<br>
-<br>
 
-<form method="get" action=" ">
-                <input type="submit" value="Submit">
-                </form>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
 </html>

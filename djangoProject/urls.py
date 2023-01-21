@@ -36,5 +36,6 @@ urlpatterns = [
  path('home',views.home, name='home'),
  path('map',views.map,name="map"),
  path('west_coast', views.west_coast, name="west_coast"),
- path('form', views.form, name="form")
+ path('form', views.form, name="form"),
+ path('form_submit', views.form_submit, name="form_submit")
 ]

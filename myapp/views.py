@@ -1,4 +1,5 @@
 import folium as folium
+import requests
 from django.shortcuts import render
 
 from myapp import support_functions
@@ -232,10 +233,11 @@ def west_coast(request):
 
     return render(request, 'west_coast.html', context=data)
 
+
 # def west_coast_link(request):
 #
 #     results = Itinerary.objects.filter(city="Los Angeles")
-#     for itinerari in results:
+#     for itineraries in results:
 #         if (str(result.length) + " days in " + result.city) not in temp_list:
 #             temp_list.append((str(result.length) + " days in " + result.city))
 #         continue
@@ -246,44 +248,101 @@ def west_coast(request):
 #     return render(request, 'west_coast.html', context=data)
 
 
+# def form(request):
+#     data = dict()
+#     data['temp'] = "temp"
+#     return render(request, 'form.html', context=data)
+
+
 def form(request):
-    data = dict()
-    data['temp'] = "temp"
+    data=dict()
+    # dob = request.POST["dob"]
+    # return render(request,"fo.html",context=dict())
+    # else:
+    #     form = UserCreationForm()
+    #     context['form'] = form
+    #     return render(request, "registration/register.html", context)
+    # len_input = request.GET['length_1']
+    # cit_input = request.GET['city_1']
+    # time_of_day_input = request.GET['time_of_day_1']
+    # activity_type_input = request.GET['activity_type_1']
+    # day_1_input = request.GET['day_1_1']
+    # day_2_input = request.GET['day_2_1']
+    # day_3_input = request.GET['day_3_1']
+    # day_4_input = request.GET['day_4_1']
+    #
+    # Itinerary(length=len_input, city=cit_input, time_of_day = time_of_day_input, activity_type=activity_type_input,
+    #             day_1=day_1_input, day_2=day_2_input,day_3=day_3_input, day_4=day_4_input).save()
+    #
+    # len_input = request.GET['length_2']
+    # cit_input = request.GET['city_2']
+    # time_of_day_input = request.GET['time_of_day_2']
+    # activity_type_input = request.GET['activity_type_2']
+    # day_1_input = request.GET['day_1_2']
+    # day_2_input = request.GET['day_2_2']
+    # day_3_input = request.GET['day_3_2']
+    # day_4_input = request.GET['day_4_2']
+    #
+    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
+    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
+    #
+    # len_input = request.GET['length_3']
+    # cit_input = request.GET['city_3']
+    # time_of_day_input = request.GET['time_of_day_3']
+    # activity_type_input = request.GET['activity_type_3']
+    # day_1_input = request.GET['day_1_3']
+    # day_2_input = request.GET['day_2_3']
+    # day_3_input = request.GET['day_3_3']
+    # day_4_input = request.GET['day_4_3']
+    #
+    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
+    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
+    #
+    # len_input = request.GET['length_4']
+    # cit_input = request.GET['city_4']
+    # time_of_day_input = request.GET['time_of_day_4']
+    # activity_type_input = request.GET['activity_type_4']
+    # day_1_input = request.GET['day_1_4']
+    # day_2_input = request.GET['day_2_4']
+    # day_3_input = request.GET['day_3_4']
+    # day_4_input = request.GET['day_4_4']
+    #
+    # Itinerary(length=len_input, cit=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
+    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
+    #
+    # len_input = request.GET['length_5']
+    # cit_input = request.GET['city_5']
+    # time_of_day_input = request.GET['time_of_day_5']
+    # activity_type_input = request.GET['activity_type_5']
+    # day_1_input = request.GET['day_1_5']
+    # day_2_input = request.GET['day_2_5']
+    # day_3_input = request.GET['day_3_5']
+    # day_4_input = request.GET['day_4_5']
+    #
+    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
+    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
+    #
+    # len_input = request.GET['length_6']
+    # cit_input = request.GET['city_6']
+    # time_of_day_input = request.GET['time_of_day_6']
+    # activity_type_input = request.GET['activity_type_6']
+    # day_1_input = request.GET['day_1_6']
+    # day_2_input = request.GET['day_2_6']
+    # day_3_input = request.GET['day_3_6']
+    # day_4_input = request.GET['day_4_6']
+    #
+    # Itinerary(length=len_input, cit=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
+    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
+
     return render(request, 'form.html', context=data)
 
 
-# def trip_result(request):
-#     data = dict()
-#
-#     result_length = Itinerary.objects.get(length=2, city="Los Angeles").length
-#     result_city = Itinerary.objects.get(length=2, city="Los Angeles").city
-#     result_time_of_day = Itinerary.objects.get(length=2, city="Los Angeles").time_of_day
-#     result_activity_type = Itinerary.objects.get(length=2, city="Los Angeles").activity_type
-#     result_day_1 = Itinerary.objects.get(length=2, city="Los Angeles").day_1
-#     result_day_2 = Itinerary.objects.get(length=2, city="Los Angeles").day_2
-#     result_day_3 = Itinerary.objects.get(length=2, city="Los Angeles").day_3
-#     result_day_4 = Itinerary.objects.get(length=2, city="Los Angeles").day_4
-#
-#     data["result_length"] = result_length
-#     data["result_city"] = result_city
-#     data["result_time_of_day"] = result_time_of_day
-#     data["result_activity_type"] = result_activity_type
-#     data["result_day_1"] = result_day_1
-#     data["result_day_2"] = result_day_2
-#     data["result_day_3"] = result_day_3
-#     data["result_day_4"] = result_day_4
-#
-#     print(result_length)
-#     print(result_city)
-#     print(result_time_of_day)
-#     print(result_activity_type)
-#     print(result_day_1)
-#     print(result_day_2)
-#     print(result_day_3)
-#     print(result_day_4)
-#
-#     return render(request, "trip_result.html", context=data)
+def form_submit(request):
+    data=dict()
 
+    # len_input = request.GET['length_1']
+
+    return render(request, 'form_submit.html', context=data)
 
 
 
