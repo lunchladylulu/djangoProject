@@ -35,5 +35,6 @@ urlpatterns = [
  path('trip_result', views.get_itinerary, name="trip_result"),
  path('home',views.home, name='home'),
  path('map',views.map,name="map"),
- path('west_coast', views.west_coast, name="west_coast")
+ path('west_coast', views.west_coast, name="west_coast"),
+ path('form', views.form, name="form")
 ]

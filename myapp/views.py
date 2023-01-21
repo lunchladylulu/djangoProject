@@ -209,14 +209,7 @@ def get_itinerary(request):
     city_input = request.GET['destination']
     data['length_input'] = length_input
     data['city_input'] = city_input
-    """
-    if choice == "currencies":
-        support_functions.add_currencies(support_functions.get_currency_list())
-        c_list = Currency.objects.all()
-        print("Got c_list", len(c_list))
-        data['currencies'] = c_list
-        return HttpResponseRedirect(reverse('currencies'))
-    """
+
     results = Itinerary.objects.filter(length=length_input, city=city_input)
     data['trip_results'] = results
     return render(request, 'trip_result.html', context=data)
@@ -224,14 +217,39 @@ def get_itinerary(request):
 
 def west_coast(request):
     data = dict()
-    data['west_coast_cities'] = "This is where links to all the LA itineraries will go."
+    temp_list = []
+
+    data['west_coast_itineraries'] = "This is where a list of the itineraries will go."
+
+    results = Itinerary.objects.filter(city="Los Angeles")
+    for result in results:
+        if (str(result.length) + " days in " + result.city) not in temp_list:
+            temp_list.append((str(result.length) + " days in " + result.city))
+        continue
+
+    data['trip_results'] = results
+    data['list_of_itineraries'] = temp_list
+
     return render(request, 'west_coast.html', context=data)
 
+# def west_coast_link(request):
+#
+#     results = Itinerary.objects.filter(city="Los Angeles")
+#     for itinerari in results:
+#         if (str(result.length) + " days in " + result.city) not in temp_list:
+#             temp_list.append((str(result.length) + " days in " + result.city))
+#         continue
+#
+#     data['trip_results'] = results
+#     data['list_of_itineraries'] = temp_list
+#
+#     return render(request, 'west_coast.html', context=data)
 
-# def form(request):
-#     data = dict()
-#     data['temp'] = "temp"
-#     return render(request, 'form.html', context=data)
+
+def form(request):
+    data = dict()
+    data['temp'] = "temp"
+    return render(request, 'form.html', context=data)
 
 
 # def trip_result(request):

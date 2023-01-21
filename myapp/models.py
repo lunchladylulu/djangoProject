@@ -72,7 +72,7 @@ class Itinerary(models.Model):
     day_4 = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.city
+        return self.length + " " + self.city
 
     def __repr__(self):
-        return self.city
+        return self.length + " " + self.city

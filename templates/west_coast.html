@@ -1,12 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>West Coast Itineraries</title>
 </head>
 <body>
-
 This is where we will display all our West Coast itineraries as e.g. "2 day in Los Angeles".
+<br>
+<br>
+
+{% for result in list_of_itineraries %}
+    {{  result }}
+    <br>
+    <br>
+{% endfor %}
 
 
 </body>

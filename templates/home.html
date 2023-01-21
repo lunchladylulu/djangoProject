@@ -3,6 +3,14 @@
     <div class="jumbotron text-center">
         <p>Find your itinerary <strong>instantly</strong> <br> with TripApp</p>
     </div>
+
+    <div><ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/west_coast">West Coast Itineraries</a></li>
+        <li><a href="/form">Add Itinerary</a></li>
+        </ul>
+    </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -10,8 +18,8 @@
                 <p>See all of our itineraries</p>
 
                     <div class="container1">
-                    <a href="{% url 'west_coast' %}"></a>
-                    <img class="images" src="https://fox40.com/wp-content/uploads/sites/13/2022/07/GettyImages-1308695861.jpg?strip=1" alt="CA Route 1 Highway" width="80">
+                    <a href="{% url 'west_coast' %}"><img class="images" id="west_coast_img" src="https://fox40.com/wp-content/uploads/sites/13/2022/07/GettyImages-1308695861.jpg?strip=1"
+                         alt="CA Route 1 Highway" width="80"></a>
                     <div class="centered">West Coast</div>
                     </div>
 
@@ -57,10 +65,17 @@
 
                 <div class="col-sm-4">
 
-                <h3 class="lobster">What's Coming Up</h3>
-                <p>Add your own itinerary</p>
+                <h3 class="lobster">Grow Your Database of Itineraries</h3>
+                <p>As TripApp grows, so do your possibilities. As more users add to our itinerary database,
+                you will find pre-made plans for more destinations and more trip lengths. Connect with your friends on
+                Facebook and Google to make sure your itineraries are generated from reliable sources. Help expand
+                the itineraries available to yourself and your network.</p>
 
-                <form method="get" action="/trip_result">
+                    <img src="https://img.freepik.com/free-photo/full-shot-friends-planning-trip_23-2148925845.jpg" alt="Friends planning a trip" width="375">
+                    <br>
+                    <br>
+
+                <form method="get" action="/form">
                 <input type="submit" value="Fill out our form">
                 </form>
 
