@@ -19,6 +19,7 @@
         #navbar {
             overflow: hidden;
             background-color: #333;
+            z-index: 1;
         }
 
         #navbar a {
@@ -27,16 +28,19 @@
             padding: 14px 16px;
             text-decoration: none;
             font-size: 20px;
+            z-index: 1;
         }
 
         #navbar a:hover {
             background-color: #ddd;
-            color: black;
+            color: #111;
+            z-index: 1;
         }
 
         #navbar a.active {
             background-color: #04AA6D;
             color: white;
+            z-index: 1;
         }
 
         .content {
@@ -61,7 +65,7 @@
             z-index: 1; /* Stay on top */
             top: 0;
             left: 0;
-            background-color: #111; /* Black*/
+            background-color: #333; /* Black*/
             overflow-x: hidden; /* Disable horizontal scroll */
             padding-top: 60px; /* Place content 60px from the top */
             transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -79,14 +83,14 @@
 
         /* When you mouse over the navigation links, change their color */
         .sidebar a:hover {
-            color: #f1f1f1;
+            color: #111;
         }
 
         /* Position and style the close button (top right corner) */
         .sidebar .closebtn {
             position: absolute;
             top: 0;
-            right: 25px;
+            right: 20px;
             font-size: 36px;
             margin-left: 50px;
         }
@@ -96,14 +100,15 @@
             position: absolute;
             font-size: 20px;
             cursor: pointer;
-            background-color: #111;
+            background-color: #333;
             color: white;
-            padding: 12px 15px;
+            padding: 14px 20px;
             border: none;
         }
 
         .openbtn:hover {
-            background-color: #444;
+            background-color: #ddd;
+            color: #111;
         }
 
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -126,25 +131,25 @@
 
     <div id="navbar">
         <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <span><a href="#">My&nbsp;Trips</a></span>
-            <span><a href="#">My&nbsp;Reviews</a></span>
-            <span><a href="#">Past&nbsp;Trips</a></span>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="font-size: 36px; background-color: #333">&times;</a>
+            <a href="#" style="background-color: #333;">My&nbsp;Trips</a>
+            <a href="{% url 'form' %}" style="background-color: #333;">New&nbsp;Trip</a>
+            <a href="#" style="background-color: #333;">Past&nbsp;Trips</a>
             {% if user.username %}
 {#                <span class="large-font">Hello&nbsp;{{ user.username }}!</span><br>#}
-                <a href="{% url 'logout' %}">logout</a>
+                <a href="{% url 'logout' %}" style="background-color: #333;">logout</a>
             {% else %}
 {#                <span class="large-font">Hello&nbsp;Guest&nbsp;User!</span><br>#}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register_user' %}">Register</a>
+                <a href="{% url 'login' %}" style="background-color: #333;">Login</a>
+                <a href="{% url 'register_user' %}" style="background-color: #333;">Register</a>
             {% endif %}
         </div>
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776;</button>
             {% if page == "home" %}
-                <a class="active" style="margin-left: 48px; float: left; text-align: center" href="javascript:void(0)">Home</a>
+                <a class="active" style="margin-left: 57px; float: left; text-align: center" href="{% url 'home' %}">Home</a>
             {% else %}
-                <a style="margin-left: 48px; float: left; text-align: center" href="javascript:void(0)">Home</a>
+                <a style="margin-left: 57px; float: left; text-align: center" href="{% url 'home' %}">Home</a>
             {% endif %}
             {% if page == "trip_planner" %}
                 <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Trip Planner</a>
@@ -162,31 +167,19 @@
                 <a style="float: left; text-align: center" href="javascript:void(0)">Reviews</a>
             {% endif %}
             {% if user.username %}
-                <a style="float: right">Hello&nbsp;{{ user.username }}!</a>
+                <a style="float: right; background-color: #333; color: #f2f2f2;">Hello&nbsp;{{ user.username }}!</a>
             {% else %}
-                <a style="float: right">Hello&nbsp;Guest&nbsp;User!</a>
+                <a style="float: right; background-color: #333; color: #f2f2f2;">Hello&nbsp;Guest&nbsp;User!</a>
             {% endif %}
         </div>
     </div>
-
-{#    <span style="float:right;">#}
-{#        {% if user.username %}#}
-{#            <span class="large-font">Hello {{ user.username }}!</span><br>#}
-{#            <a href="{% url 'logout' %}"><button>logout</button></a>#}
-{#        {% else %}#}
-{#            <span class="large-font">Hello Guest User!</span><br>#}
-{#            <a href="{% url 'login' %}"><button>login</button></a>/<a href="{% url 'register_user' %}"><button>register</button></a>#}
-{#        {% endif %}#}
-{#    </span>#}
 
     {% block content %}
         <-- This is where the page content will go! -->
     {% endblock %}
    <div id="footer">
-
         ©2023 Columbia Business School. All Rights Reserved
-
-    </div>
+   </div>
 
     <script>
         window.onscroll = function() {myFunction()};
