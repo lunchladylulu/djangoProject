@@ -107,10 +107,14 @@ jumbotron text-center{
 #footer {
   position:fixed;
   bottom:0;
+    padding-top:5px;
   left:0;
   width:100%;
-  height: 90px;
+  height: 40px;
   background-color: #D0DAEE;
+    font-size: 20px;
+    text-align: center;
+    color: #f3f3f3;
     background-image: url("https://as2.ftcdn.net/v2/jpg/03/54/94/49/1000_F_354944901_SzU5v3KbpDM0752i9d7C3gSMjFexisw1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -130,5 +134,15 @@ li{
     text-align:center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+footer { /* use with id = "footer" */
+ width:100%;
+ height:1em;
+ padding: 2em 0.25em;
+ text-align: center;
+ font-size: xx-small;
+ background-color: #bff0ff;
+ color: black;
 }
 

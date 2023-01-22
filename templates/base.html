@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Engelbert">
     <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
     <style>
         body {
             margin: 0;
             font-size: 28px;
-            font-family: "Lato",Arial, Helvetica, sans-serif;
+            font-family: "Lato", Arial, Helvetica, sans-serif;
         }
 
         #navbar {
@@ -113,61 +112,63 @@
 
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
         @media screen and (max-height: 450px) {
-            .sidebar {padding-top: 15px;}
-            .sidebar a {font-size: 18px;}
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 
 <body class="body">
-    <div class="jumbotron text-center">
-        <img src='{% static "myapp/logo.png" %}' alt="image" width="200px">
+<div id="navbar">
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <span><a href="#">My&nbsp;Trips</a></span>
+        <span><a href="#">My&nbsp;Reviews</a></span>
+        <span><a href="#">Past&nbsp;Trips</a></span>
+        {% if user.username %}
+            {#                <span class="large-font">Hello&nbsp;{{ user.username }}!</span><br>#}
+            <a href="{% url 'logout' %}">logout</a>
+        {% else %}
+            {#                <span class="large-font">Hello&nbsp;Guest&nbsp;User!</span><br>#}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register_user' %}">Register</a>
+        {% endif %}
     </div>
-
-    <div id="navbar">
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <span><a href="#">My&nbsp;Trips</a></span>
-            <span><a href="#">My&nbsp;Reviews</a></span>
-            <span><a href="#">Past&nbsp;Trips</a></span>
-            {% if user.username %}
-{#                <span class="large-font">Hello&nbsp;{{ user.username }}!</span><br>#}
-                <a href="{% url 'logout' %}">logout</a>
-            {% else %}
-{#                <span class="large-font">Hello&nbsp;Guest&nbsp;User!</span><br>#}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register_user' %}">Register</a>
-            {% endif %}
-        </div>
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
-            {% if page == "home" %}
-                <a class="active" style="margin-left: 48px; float: left; text-align: center" href="javascript:void(0)">Home</a>
-            {% else %}
-                <a style="margin-left: 48px; float: left; text-align: center" href="javascript:void(0)">Home</a>
-            {% endif %}
-            {% if page == "trip_planner" %}
-                <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Trip Planner</a>
-            {% else %}
-                <a style="float: left; text-align: center" href="javascript:void(0)">Trip Planner</a>
-            {% endif %}
-            {% if page == "explore" %}
-                <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Explore</a>
-            {% else %}
-                <a style="float: left; text-align: center" href="javascript:void(0)">Explore</a>
-            {% endif %}
-            {%  if page == "reviews" %}
-                <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Reviews</a>
-            {% else %}
-                <a style="float: left; text-align: center" href="javascript:void(0)">Reviews</a>
-            {% endif %}
-            {% if user.username %}
-                <a style="float: right">Hello&nbsp;{{ user.username }}!</a>
-            {% else %}
-                <a style="float: right">Hello&nbsp;Guest&nbsp;User!</a>
-            {% endif %}
-        </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+        {% if page == "home" %}
+            <a class="active" style="margin-left: 48px; float: left; text-align: center"
+               href="javascript:void(0)">Home</a>
+        {% else %}
+            <a style="margin-left: 48px; float: left; text-align: center" href="javascript:void(0)">Home</a>
+        {% endif %}
+        {% if page == "trip_planner" %}
+            <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Trip Planner</a>
+        {% else %}
+            <a style="float: left; text-align: center" href="javascript:void(0)">Trip Planner</a>
+        {% endif %}
+        {% if page == "explore" %}
+            <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Explore</a>
+        {% else %}
+            <a style="float: left; text-align: center" href="javascript:void(0)">Explore</a>
+        {% endif %}
+        {% if page == "reviews" %}
+            <a class="active" style="float: left; text-align: center" href="javascript:void(0)">Reviews</a>
+        {% else %}
+            <a style="float: left; text-align: center" href="javascript:void(0)">Reviews</a>
+        {% endif %}
+        {% if user.username %}
+            <a style="float: right">Hello&nbsp;{{ user.username }}!</a>
+        {% else %}
+            <a style="float: right">Hello&nbsp;Guest&nbsp;User!</a>
+        {% endif %}
     </div>
+</div>
 
 {#    <span style="float:right;">#}
 {#        {% if user.username %}#}
@@ -179,28 +180,22 @@
 {#        {% endif %}#}
 {#    </span>#}
 
-    {% block content %}
-        <-- This is where the page content will go! -->
-    {% endblock %}
-   <div id="footer">
 
-        ©2023 Columbia Business School. All Rights Reserved
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
 
-    </div>
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
 
-    <script>
-        window.onscroll = function() {myFunction()};
-
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
         }
+    }
 
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -209,9 +204,14 @@
 
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("main").style.marginLeft = "0";
     }
-    </script>
+</script>
 
 </body>
+
+<footer>
+    ©2023 Columbia Business School. Webapp Programming in Python - Team 6. All Rights Reserved
+</footer>
+
 </html>
