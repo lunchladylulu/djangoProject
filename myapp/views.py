@@ -19,6 +19,7 @@ def home(request):
     time = datetime.datetime.now()
     data["time_of_day"] = time
     data["xy"] = "xy"
+    data["page"] ="home"
     print(time)
     return render(request, "home.html", context=data)
 
