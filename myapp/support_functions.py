@@ -172,7 +172,56 @@ def add_trips():
         t.save()
 
 
-
-
-
-
+def fill_db_trips(request):
+    print(request)
+    t = {}
+    for i in range (1,6):
+        t[i] = Itinerary(length=int(request['length_'+str(i)]),
+                  city=request['city_'+str(i)],
+                  time_of_day=request['time_of_day_'+str(i)],
+                  activity_type=request['activity_type_'+str(i)],
+                  day_1=request['day_1_'+str(i)],
+                  day_2=request['day_2_'+str(i)],
+                  day_3=request['day_3_'+str(i)],
+                  day_4=request['day_4_'+str(i)])
+        t[i].save()
+    print(t)
+    # t1 = Itinerary(length=int(request['length_1']),
+    #               city=request['city_1'],
+    #               time_of_day=request['time_of_day_1'],
+    #               activity_type=request['activity_type_1'],
+    #               day_1=request['day_1_1'],
+    #               day_2=request['day_2_1'],
+    #               day_3=request['day_3_1'],
+    #               day_4=request['day_4_1'])
+    # t1.save()
+    #
+    # t2 = Itinerary(length=int(request['length_2']),
+    #               city=request['city_2'],
+    #               time_of_day=request['time_of_day_2'],
+    #               activity_type=request['activity_type_2'],
+    #               day_1=request['day_1_2'],
+    #               day_2=request['day_2_2'],
+    #               day_3=request['day_3_2'],
+    #               day_4=request['day_4_2'])
+    # t2.save()
+    #
+    # t3 = Itinerary(length=int(request['length_3']),
+    #                city=request['city_3'],
+    #                time_of_day=request['time_of_day_3'],
+    #                activity_type=request['activity_type_3'],
+    #                day_1=request['day_1_3'],
+    #                day_2=request['day_2_3'],
+    #                day_3=request['day_3_3'],
+    #                day_4=request['day_4_3'])
+    # t3.save()
+    #
+    # t3 = Itinerary(length=int(request['length_3']),
+    #                city=request['city_3'],
+    #                time_of_day=request['time_of_day_3'],
+    #                activity_type=request['activity_type_3'],
+    #                day_1=request['day_1_3'],
+    #                day_2=request['day_2_3'],
+    #                day_3=request['day_3_3'],
+    #                day_4=request['day_4_3'])
+    # t3.save()

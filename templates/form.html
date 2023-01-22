@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method="post" action="{% url "form_submit" %}">
+    {% csrf_token %}
 <table class="customTable">
                 <tr style="width:150%">
                     <th>Length of Trip</th>

@@ -255,91 +255,27 @@ def west_coast(request):
 
 
 def form(request):
-    data=dict()
-    # dob = request.POST["dob"]
-    # return render(request,"fo.html",context=dict())
+    data = dict()
+    # if request.method == 'POST':
+    #     # do abc
     # else:
-    #     form = UserCreationForm()
-    #     context['form'] = form
-    #     return render(request, "registration/register.html", context)
-    # len_input = request.GET['length_1']
-    # cit_input = request.GET['city_1']
-    # time_of_day_input = request.GET['time_of_day_1']
-    # activity_type_input = request.GET['activity_type_1']
-    # day_1_input = request.GET['day_1_1']
-    # day_2_input = request.GET['day_2_1']
-    # day_3_input = request.GET['day_3_1']
-    # day_4_input = request.GET['day_4_1']
-    #
-    # Itinerary(length=len_input, city=cit_input, time_of_day = time_of_day_input, activity_type=activity_type_input,
-    #             day_1=day_1_input, day_2=day_2_input,day_3=day_3_input, day_4=day_4_input).save()
-    #
-    # len_input = request.GET['length_2']
-    # cit_input = request.GET['city_2']
-    # time_of_day_input = request.GET['time_of_day_2']
-    # activity_type_input = request.GET['activity_type_2']
-    # day_1_input = request.GET['day_1_2']
-    # day_2_input = request.GET['day_2_2']
-    # day_3_input = request.GET['day_3_2']
-    # day_4_input = request.GET['day_4_2']
-    #
-    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
-    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
-    #
-    # len_input = request.GET['length_3']
-    # cit_input = request.GET['city_3']
-    # time_of_day_input = request.GET['time_of_day_3']
-    # activity_type_input = request.GET['activity_type_3']
-    # day_1_input = request.GET['day_1_3']
-    # day_2_input = request.GET['day_2_3']
-    # day_3_input = request.GET['day_3_3']
-    # day_4_input = request.GET['day_4_3']
-    #
-    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
-    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
-    #
-    # len_input = request.GET['length_4']
-    # cit_input = request.GET['city_4']
-    # time_of_day_input = request.GET['time_of_day_4']
-    # activity_type_input = request.GET['activity_type_4']
-    # day_1_input = request.GET['day_1_4']
-    # day_2_input = request.GET['day_2_4']
-    # day_3_input = request.GET['day_3_4']
-    # day_4_input = request.GET['day_4_4']
-    #
-    # Itinerary(length=len_input, cit=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
-    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
-    #
-    # len_input = request.GET['length_5']
-    # cit_input = request.GET['city_5']
-    # time_of_day_input = request.GET['time_of_day_5']
-    # activity_type_input = request.GET['activity_type_5']
-    # day_1_input = request.GET['day_1_5']
-    # day_2_input = request.GET['day_2_5']
-    # day_3_input = request.GET['day_3_5']
-    # day_4_input = request.GET['day_4_5']
-    #
-    # Itinerary(length=len_input, city=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
-    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
-    #
-    # len_input = request.GET['length_6']
-    # cit_input = request.GET['city_6']
-    # time_of_day_input = request.GET['time_of_day_6']
-    # activity_type_input = request.GET['activity_type_6']
-    # day_1_input = request.GET['day_1_6']
-    # day_2_input = request.GET['day_2_6']
-    # day_3_input = request.GET['day_3_6']
-    # day_4_input = request.GET['day_4_6']
-    #
-    # Itinerary(length=len_input, cit=cit_input, time_of_day=time_of_day_input, activity_type=activity_type_input,
-    #           day_1=day_1_input, day_2=day_2_input, day_3=day_3_input, day_4=day_4_input).save()
-
+    #     # do xyz
+    # form = UserCreationForm(request.post)
+    # if form.is_valid():
+    #     # do something
+    #     print(form)
+    #     new_itinerary_info = form.save()
+    #     print("blah blah")
+    #     print(new_itinerary_info)
+    # else:
+    #     return render(request, 'form.html', context=data)
     return render(request, 'form.html', context=data)
 
 
 def form_submit(request):
     data=dict()
-
+    if request.method == 'POST':
+        support_functions.fill_db_trips(request.POST)
     # len_input = request.GET['length_1']
 
     return render(request, 'form_submit.html', context=data)
