@@ -9,7 +9,7 @@ def get_currency_list():
     from bs4 import BeautifulSoup
     url = "https://thefactfile.org/countries-currencies-symbols/"
     response = requests.get(url)
-    #if not response.status_code == 200:
+    # if not response.status_code == 200:
     #      return currency_list
     soup = BeautifulSoup(response.text)
     data_lines = soup.find_all('tr')
@@ -25,6 +25,7 @@ def get_currency_list():
             continue
     return currency_list
 
+
 def add_currencies(currency_list):
     for currency in currency_list:
         currency_name = currency[0]
@@ -36,7 +37,7 @@ def add_currencies(currency_list):
         except:
             c = Currency(long_name=currency_name, iso=currency_symbol)
         c.name = currency_name
-        c.save() #To test out the code, replace this by print(c)
+        c.save()  # To test out the code, replace this by print(c)
 
 
 def get_currency_rates(iso_code):
@@ -52,10 +53,10 @@ def get_currency_rates(iso_code):
     data_lines = data.find_all('tr')
     for line in data_lines:
         symbol = line.find('th').get_text()
-        data=line.find_all('td')
+        data = line.find_all('td')
         try:
             x_rate = float(data[2].get_text().strip())
-            x_rate_list.append((symbol,x_rate))
+            x_rate_list.append((symbol, x_rate))
         except:
             continue
     return x_rate_list
@@ -72,7 +73,8 @@ def update_xrates(currency):
                 rate_object.rate = new_rate[1]
                 rate_object.last_update_time = time_now
             except:
-                rate_object = Rates(currency=currency, x_currency=new_rate[0], rate=new_rate[1],last_update_time=time_now)
+                rate_object = Rates(currency=currency, x_currency=new_rate[0], rate=new_rate[1],
+                                    last_update_time=time_now)
             rate_object.save()
     except:
         pass
@@ -85,7 +87,7 @@ def DMS_to_decimal(dms_coordinates):
         seconds = int(dms_coordinates.split('°')[1].split("'")[1][:2])
     except:
         seconds = 0.0
-    decimal = degrees + minutes/60 + seconds/3600
+    decimal = degrees + minutes / 60 + seconds / 3600
     try:
         if dms_coordinates[-1] == "S":
             decimal = -decimal
@@ -109,7 +111,7 @@ def get_lat_lon(city_name):
         wiki_link = ""
     except:
         url = "https://en.wikipedia.org/wiki/"
-        url += city_name.replace(" ","_")
+        url += city_name.replace(" ", "_")
         wiki_link = url
         try:
             text = requests.get(url).text
@@ -121,29 +123,29 @@ def get_lat_lon(city_name):
         except:
             lat = 0.0
             lon = 0.0
-    return lat,lon,wiki_link
+    return lat, lon, wiki_link
 
 
-def add_markers(m,visiting_cities):
+def add_markers(m, visiting_cities):
     import folium
     lat_lon_list = list()
     for city_name in visiting_cities:
-        lat,lon,wiki_link = get_lat_lon(city_name)
-        print(city_name,lat,lon,wiki_link)
+        lat, lon, wiki_link = get_lat_lon(city_name)
+        print(city_name, lat, lon, wiki_link)
         if lat != 0.0 and lon != 0.0 and wiki_link != "":
-            icon = folium.Icon(color="blue",prefix="fa",icon="plane")
+            icon = folium.Icon(color="blue", prefix="fa", icon="plane")
             popup = "<a href="
             popup += wiki_link
-            popup += ">" + city_name+ "</a>"
-            marker = folium.Marker((lat,lon),icon=icon,popup=popup)
+            popup += ">" + city_name + "</a>"
+            marker = folium.Marker((lat, lon), icon=icon, popup=popup)
             marker.add_to(m)
-            lat_lon_list.append([lat,lon])
-    #Add line. First rearrange lat lons by longitude
+            lat_lon_list.append([lat, lon])
+    # Add line. First rearrange lat lons by longitude
     lat_lon_list.sort(key=lambda x: x[1])
     line_string = list()
-    for i in range(len(lat_lon_list)-1):
-        line_string.append([lat_lon_list[i],lat_lon_list[i+1]])
-    line = folium.PolyLine(line_string,color="red",weight=5)
+    for i in range(len(lat_lon_list) - 1):
+        line_string.append([lat_lon_list[i], lat_lon_list[i + 1]])
+    line = folium.PolyLine(line_string, color="red", weight=5)
     line.add_to(m)
     return m
 
@@ -161,18 +163,31 @@ def add_trips():
     with open(filepath) as f:
         trip_list = list(csv.reader(f, delimiter=","))[1:]
     for trip in trip_list:
-        t = Itinerary(length=int(trip[0]),
-                      city=trip[1],
-                      time_of_day=trip[2],
-                      activity_type=trip[3],
-                      day_1=trip[4],
-                      day_2=trip[5],
-                      day_3=trip[6],
-                      day_4=trip[7])
-        t.save()
+        try:
+            t = Itinerary(length=int(trip[0]),
+                          city=trip[1],
+                          time_of_day=trip[2],
+                          activity_type=trip[3],
+                          day_1=trip[4],
+                          day_2=trip[5],
+                          day_3=trip[6],
+                          day_4=trip[7])
+            t.save()
+        except ValueError:
+            print(f"Invalid value for length: {trip[0]}")
+        except Exception as e:
+            print(f"Error saving itinerary: {e}")
 
 
-
-
-
-
+def fill_db_trips(request):
+    t = {}
+    for i in range(1, 5):
+        t[i] = Itinerary(length=int(request['length_' + str(i)]),
+                         city=request['city_' + str(i)],
+                         time_of_day=request['time_of_day_' + str(i)],
+                         activity_type=request['activity_type_' + str(i)],
+                         day_1=request['day_1_' + str(i)],
+                         day_2=request['day_2_' + str(i)],
+                         day_3=request['day_3_' + str(i)],
+                         day_4=request['day_4_' + str(i)])
+        t[i].save()
