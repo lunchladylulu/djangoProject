@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
-
+<div id="loading-animation" class="loading-animation">
+   <img class="logoimage" src={% static 'myapp/favicon.png' %} alt="Loading...">
+</div>
 
 <div class="container">
     <h1>Voyage Vault is excited to help you plan your next trip</h1>
@@ -78,4 +81,10 @@
         </div>
 </div>
 
+    <script>
+    window.onload = function() {
+  var loadingAnimation = document.getElementById("loading-animation");
+  loadingAnimation.style.display = "none";
+};
+    </script>
 {% endblock %}
