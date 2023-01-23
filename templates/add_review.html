@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Add a Review</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="heading">Review Heading</label>
+                <input type="text" class="form-control" id="heading" name="heading" placeholder="Enter a short heading for your review">
+            </div>
+            <div class="form-group">
+                <label for="review_body">Review Body</label>
+                <textarea class="form-control" id="review_body" name="review_body" rows="3" placeholder="Enter your review"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit Review">
+        </form>
+    </div>
+{% endblock %}

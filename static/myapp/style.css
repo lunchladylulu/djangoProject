@@ -1,121 +1,99 @@
-/*Use this sheet to manage styles*/
-h1{
-    color: rgba(255, 20, 196, 0.71);
-}
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 900;
+    color: #003a0f
+}
+h1 {
+        font-family: 'Alegreya', sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin: 50px;
+        animation: animateTitle 3s ease-in-out infinite;
+      }
+/* Add some keyframe animations for the title */
+      @keyframes animateTitle {
+        0% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-20px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        75% {
+          transform: translateY(20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
 .large-font { /* use with class="large-font" */
     font-size: large;
     color: crimson;
 }
 
-.lobster {
- color: coral;
- font-family: 'lobster';
- font-size: 36px;
-}
 
-.englebert {
-    color: #fab35d;
-    font-family: 'englebert';
-    font-size: 48px;
-}
 
 table.tables {
     border: 1px solid black
 }
 
- Centered text
+Centered text
 .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
- Container holding the image and the text
+Container holding the image and the text
 .container1 {
-  position: relative;
-  text-align: center;
-  color: white;
+    position: relative;
+    text-align: center;
+    color: white;
     font-family: englebert;
     font-size: 28px
 }
 
 table.customTable {
-  width: 100%;
-  background-color: #FFFFFF;
-  border-collapse: collapse;
-  border-width: 2px;
-  border-color: #f3a961;
-  border-style: solid;
-  color: #000000;
-}
-
-.body{
-    background-color: #ffffff;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("https://img.freepik.com/premium-photo/gray-calathea-lutea-leaf-patterned-background_53876-149681.jpg?w=1060")
-}
-
-.images{
-    opacity:1.0;
-    border: 5px solid #f3f3f3;
-     float: left;
     width: 100%;
-  padding: 5px;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #f3a961;
+    border-style: solid;
+    color: #000000;
+}
+
+
+.images {
+    opacity: 1.0;
+    border: 5px solid #f3f3f3;
+    float: left;
+    width: 100%;
+    padding: 5px;
 }
 
 .images:hover {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
-/*.row::after {*/
-/*  content: "";*/
-/*  clear: both;*/
-/*  display: table;*/
-/*}*/
 
-jumbotron text-center{
+jumbotron text-center {
     background-image: url("https://wallpapercrafter.com/desktop/15991-coast-ocean-aerial-view-malibu-usa-4k.jpg");
 }
 
-/*.wrapper {*/
-/*  display: grid;*/
-/*  grid-template-columns: 2fr;*/
-/*  grid-auto-rows: 200px;*/
-/*}*/
-
-/*.box1 {*/
-/*  grid-column-start: 1;*/
-/*  grid-row-start: 1;*/
-/*  grid-row-end: 2;*/
-/*}*/
-
-/*.box2 {*/
-/*  grid-column-start: 1;*/
-/*  grid-row-start: 3;*/
-/*  grid-row-end: 4;*/
-/*}*/
-
-/*.box3 {*/
-/*  grid-column-start:1;*/
-/*  grid-row-start: 4;*/
-/*  grid-row-end: 5;*/
-/*}*/
-
-#footer {
-  position:fixed;
-  bottom:0;
-    padding-top:5px;
-  left:0;
-  width:100%;
-  height: 40px;
-  background-color: #D0DAEE;
-    font-size: 20px;
+footer {
+    position: relative;
+    width: 100%;
+    height: 1em;
+    padding: 2em 0.25em;
     text-align: center;
-    color: #f3f3f3;
-    background-image: url("https://as2.ftcdn.net/v2/jpg/03/54/94/49/1000_F_354944901_SzU5v3KbpDM0752i9d7C3gSMjFexisw1.jpg");
+    font-size: xx-small;
+    background-color: #bff0ff;
+    color: black;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -123,26 +101,190 @@ jumbotron text-center{
 ul {
     font-family: Ebrima;
     font-size: 24px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-li{
-    display:inline-block;
+li {
+    display: inline-block;
     color: coral;
-    text-align:center;
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-footer { /* use with id = "footer" */
- width:100%;
- height:1em;
- padding: 2em 0.25em;
- text-align: center;
- font-size: xx-small;
- background-color: #bff0ff;
- color: black;
+.container1 img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.header-text {
+  font-family: 'Alegreya', 'Quicksand', 'Times New Roman', serif;
+  font-size: 18px;
+}
+body {
+    margin: 0;
+    font-size: 28px;
+    font-family: 'Alegreya', 'Quicksand', 'Times New Roman', serif;
+    background-color: #ffffff;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+#navbar a {
+    display: block;
+    color: #f2f2f2;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s; /* If you want a transition effect */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+
+/* Add hover effect to navbar links */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add animation effect to navbar links */
+.navbar a {
+  transition: all 0.3s ease;
+}
+
+/* Add hover effect to buttons */
+button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar {
+    display: flex; /* enables flexbox layout */
+    justify-content: space-between; /* aligns elements to left and right */
+}
+
+.navbar-nav {
+    flex: 1; /* takes up remaining space */
+}
+
+.navbar-nav.ml-auto {
+    margin-left: auto; /* pushes element to the right */
+}
+
+
+/* Add animation effect to buttons */
+button {
+  transition: all 0.3s ease;
+}
+.parent {
+  display: flex;
+  justify-content: space-between;
+      align-items: center;
+
+}
+
+.left-element{
+  margin-right: auto;
+}
+.right-element{
+  margin-left: auto;
 }
 

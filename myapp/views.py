@@ -1,7 +1,10 @@
+from django.db.models import Q
+
+from .models import Review
 import folium as folium
 import requests
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from myapp import support_functions
 from myapp.models import Currency, AccountHolder, Itinerary
 from django.contrib.auth.forms import UserCreationForm
@@ -104,14 +107,14 @@ def register_new_user(request):
         return render(request, "registration/register.html", context)
 
 
-def tripapp_home(request):
+def voyagevault_home(request):
     data = dict()
     import datetime
     time = datetime.datetime.now()
     data["time_of_day"] = time
     data["xy"] = "xy"
     print(time)
-    return render(request, "tripapp_home.html", context=data)
+    return render(request, "voyagevault_home.html", context=data)
 
 
 def map1(request):
@@ -185,7 +188,7 @@ def west_coast(request):
 
     data['west_coast_itineraries'] = "This is where a list of the itineraries will go."
 
-    results = Itinerary.objects.filter(city="Los Angeles")
+    results = Itinerary.objects.filter(Q(city="Los Angeles") | Q(city="San Francisco"))
     for result in results:
         if (str(result.length) + " days in " + result.city) not in temp_list:
             temp_list.append((str(result.length) + " days in " + result.city))
@@ -211,3 +214,43 @@ def form_submit(request):
     if request.method == 'POST':
         support_functions.fill_db_trips(request.POST)
     return render(request, 'form_submit.html', context=data)
+
+
+def add_review(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            heading = request.POST['heading']
+            review_body = request.POST['review_body']
+            user = request.user
+            review = Review(heading=heading, review_body=review_body, user=user)
+            review.save()
+            return redirect('reviews')
+        else:
+            return render(request, 'add_review.html')
+        pass
+    else:
+        messages.warning(request, "Please log in to add a review.")
+        return redirect('login')
+
+
+def reviews(request):
+    reviews = Review.objects.all()
+    return render(request, 'reviews.html', {'user': request.user, 'reviews': reviews})
+
+
+def east_coast(request):
+    data = dict()
+    temp_list = []
+
+    data['east_coast_itineraries'] = "This is where a list of the itineraries will go."
+
+    results = Itinerary.objects.filter(Q(city="New York") | Q(city="Chicago"))
+    for result in results:
+        if (str(result.length) + " days in " + result.city) not in temp_list:
+            temp_list.append((str(result.length) + " days in " + result.city))
+        continue
+
+    data['trip_results'] = results
+    data['list_of_itineraries'] = temp_list
+
+    return render(request, 'west_coast.html', context=data)

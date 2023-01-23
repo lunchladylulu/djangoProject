@@ -1,8 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here. Everytime this is added you need to makemigrations and migrate.
-class Currency(models.Model):
+from django.db import models
 
+
+class Review(models.Model):
+    heading = models.CharField(max_length=100)
+    review_body = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.heading
+
+
+class Currency(models.Model):
     iso = models.CharField(max_length=3)
     long_name = models.CharField(max_length=50)
 
@@ -14,13 +26,13 @@ class Currency(models.Model):
 
 
 class Holding(models.Model):
-
-    iso = models.ForeignKey(Currency,on_delete=models.CASCADE)
+    iso = models.ForeignKey(Currency, on_delete=models.CASCADE)
     value = models.FloatField(default=0.0)
     buy_date = models.DateField()
 
     def __repr__(self):
         return self.iso.iso + " " + str(self.value) + " " + str(self.buy_date)
+
     def __str__(self):
         return self.iso.long_name + " " + str(self.value) + " " + str(self.buy_date)
 
@@ -33,16 +45,19 @@ class Rates(models.Model):
 
     def __repr__(self):
         return self.currency.iso + " " + self.x_currency + " " + str(self.rate)
+
     def __str__(self):
         return self.currency.iso + " " + self.x_currency + " " + str(self.rate)
 
 
 class AccountHolder(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
     currencies_visited = models.ManyToManyField(Currency)
+
     def __str__(self):
         return self.user.username
+
     def __repr__(self):
         return self.user.username
 
