@@ -1,15 +1,6 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Engelbert">
-    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
-</head>
+{% extends 'base.html' %}
+{% block content %}
 <body>
 
 These are your results. Results on this page must depend on the two user inputs for destination and length.
@@ -45,4 +36,4 @@ These are your results. Results on this page must depend on the two user inputs 
 
 
 </body>
-</html>
+{% endblock %}

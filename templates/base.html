@@ -8,9 +8,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&family=Alegreya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
-<div class="collapse navbar-collapse" id="navbarNav">
+<div class="collapse navbar-collapse bg-nav" id="navbarNav">
     <div class="row">
-        <ul class="navbar-nav col-8 left-element">
+        <ul class="navbar-nav col-8 ">
             <li class="nav-item {% if page == "home" %} active {% endif %}">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
@@ -24,7 +24,7 @@
                 <a class="nav-link" href="{% url 'reviews' %}">Reviews</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto col-4 right-element">
+        <ul class="navbar-nav ml-auto col-4">
             {% if user.username %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

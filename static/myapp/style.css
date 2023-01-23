@@ -4,36 +4,38 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     color: #003a0f
 }
+
 h1 {
-        font-family: 'Alegreya', sans-serif;
-        font-size: 50px;
-        text-align: center;
-        margin: 50px;
-        animation: animateTitle 3s ease-in-out infinite;
-      }
+    font-family: 'Alegreya', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 50px;
+    animation: animateTitle 3s ease-in-out infinite;
+}
+
 /* Add some keyframe animations for the title */
-      @keyframes animateTitle {
-        0% {
-          transform: translateY(0);
-        }
-        25% {
-          transform: translateY(-20px);
-        }
-        50% {
-          transform: translateY(0);
-        }
-        75% {
-          transform: translateY(20px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
+@keyframes animateTitle {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .large-font { /* use with class="large-font" */
     font-size: large;
     color: crimson;
 }
-
 
 
 table.tables {
@@ -120,9 +122,10 @@ li {
 }
 
 .header-text {
-  font-family: 'Alegreya', 'Quicksand', 'Times New Roman', serif;
-  font-size: 18px;
+    font-family: 'Alegreya', 'Quicksand', 'Times New Roman', serif;
+    font-size: 18px;
 }
+
 body {
     margin: 0;
     font-size: 28px;
@@ -241,19 +244,19 @@ body {
 
 /* Add hover effect to navbar links */
 .navbar a:hover {
-  background-color: #ddd;
-  color: black;
+    background-color: #ddd;
+    color: black;
 }
 
 /* Add animation effect to navbar links */
 .navbar a {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 /* Add hover effect to buttons */
 button:hover {
-  background-color: #ddd;
-  color: black;
+    background-color: #ddd;
+    color: black;
 }
 
 .navbar {
@@ -272,19 +275,30 @@ button:hover {
 
 /* Add animation effect to buttons */
 button {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
+
 .parent {
-  display: flex;
-  justify-content: space-between;
-      align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
-.left-element{
-  margin-right: auto;
+.left-element {
+    margin-right: auto;
 }
-.right-element{
-  margin-left: auto;
+
+.right-element {
+    margin-left: auto;
+}
+
+.bg-nav {
+    padding: 10px;
+    margin: 10px;
+    background-image: -moz-linear-gradient(to right, #dddddd, #c5fcd1);
+    background-image: -webkit-linear-gradient(to right, #dddddd, #c5fcd1);
+    background-image: linear-gradient(to right, #dddddd, #c5fcd1);
+
 }
 
