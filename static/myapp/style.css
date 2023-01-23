@@ -67,6 +67,26 @@ table.customTable {
     border-color: #f3a961;
     border-style: solid;
     color: #000000;
+    margin: 0 auto; /*align to center of the page*/
+}
+
+table {
+  width: 100%; /* Make the table take up the full width of its container */
+}
+
+td, th {
+  /* Make the table cells take up a equal amount of space */
+  width: 14.28%;
+  text-align: center;
+}
+
+/* Add a media query to change the layout when the screen is smaller than 600px */
+@media (max-width: 600px) {
+  td, th {
+    /* Make the cells stack vertically */
+    display: block;
+    width: 100%;
+  }
 }
 
 
@@ -300,5 +320,20 @@ button {
     background-image: -webkit-linear-gradient(to right, #dddddd, #c5fcd1);
     background-image: linear-gradient(to right, #dddddd, #c5fcd1);
 
+}
+
+.review-card {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+}
+.review-header h2, h5, h6 {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 

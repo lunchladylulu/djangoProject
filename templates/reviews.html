@@ -1,60 +1,78 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
-<div class="card">
-    <div class="card-header">
-        <h3>User Reviews</h3>
+    <body>
+    <h1>User Reviews</h1>
+    <div class="review-box">
+        <div class="review">
+            <div class="review-header">
+                <h2 class="card-title">Amazing Trip Planning App</h2>
+                <h5>By John Doe</h5>
+                <h6>Date Added: Jan. 18, 2023, 5:43 p.m.</h6>
+            </div>
+            <div class="review-body">
+                <p>I recently discovered Voyage Vault and it has completely changed the way I plan my trips. Not only
+                    can I easily plan and organize my itineraries, but I can also share them with my friends and even
+                    use custom itineraries created by others. When Aishwarya, Lulu, and Justin showed me the app, I was
+                    very impressed with its user-friendly design and functionality. I highly recommend it to anyone
+                    looking to streamline their trip planning process.</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-header">
+                <h2 class="card-title">Voyage Vault is a Game Changer</h2>
+                <h5>By Jane Smith</h5>
+                <h6>Date Added: Jan. 19, 2023, 12:15 p.m.</h6>
+            </div>
+            <div class="review-body">
+                <p>I have been using Voyage Vault for a few months now and I am extremely impressed with how much it has
+                    improved my trip planning experience. The ability to collaborate and share itineraries with my
+                    friends, as well as using custom itineraries created by other users, has been a game changer. When
+                    Aishwarya, Lulu, and Justin introduced me to the app, I was immediately sold on its many features
+                    and benefits. I highly recommend it to anyone who loves to travel.</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-header">
+                <h2 class="card-title">The Ultimate Trip Planning Tool</h2>
+                <h5>By Michael Johnson</h5>
+                <h6>Date Added: Jan. 22, 2023, 7:25 p.m.</h6>
+            </div>
+            <div class="review-body">
+                <p>Voyage Vault is hands down the best trip planning tool I have ever used. The ability to easily
+                    create, share, and use custom itineraries has made my trip planning process so much more efficient
+                    and enjoyable. Aishwarya, Lulu, and Justin introduced me to the app and I have been hooked ever
+                    since. I highly recommend it to anyone who wants to take the hassle out of trip planning and make
+                    the most of their travels.</p>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <div class="review">
-            <div class="review-header">
-                <h5>Amazing Trip Planning App</h5>
-                <p>By John Doe</p>
-            </div>
-            <div class="review-body">
-                <p>I recently discovered Voyage Vault and it has completely changed the way I plan my trips. Not only can I easily plan and organize my itineraries, but I can also share them with my friends and even use custom itineraries created by others. When Aishwarya, Lulu, and Justin showed me the app, I was very impressed with its user-friendly design and functionality. I highly recommend it to anyone looking to streamline their trip planning process.</p>
-            </div>
-        </div>
-        <div class="review">
-            <div class="review-header">
-                <h5>Voyage Vault is a Game Changer</h5>
-                <p>By Jane Smith</p>
-            </div>
-            <div class="review-body">
-                <p>I have been using Voyage Vault for a few months now and I am extremely impressed with how much it has improved my trip planning experience. The ability to collaborate and share itineraries with my friends, as well as using custom itineraries created by other users, has been a game changer. When Aishwarya, Lulu, and Justin introduced me to the app, I was immediately sold on its many features and benefits. I highly recommend it to anyone who loves to travel.</p>
-            </div>
-        </div>
-        <div class="review">
-            <div class="review-header">
-                <h5>The Ultimate Trip Planning Tool</h5>
-                <p>By Michael Johnson</p>
-            </div>
-            <div class="review-body">
-                <p>Voyage Vault is hands down the best trip planning tool I have ever used. The ability to easily create, share, and use custom itineraries has made my trip planning process so much more efficient and enjoyable. Aishwarya, Lulu, and Justin introduced me to the app and I have been hooked ever since. I highly recommend it to anyone who wants to take the hassle out of trip planning and make the most of their travels.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="reviews">
+
+    <div class="reviews">
         {% for review in reviews %}
             <div class="review">
-                <h2>{{ review.heading }}</h2>
-                <p>{{ review.content }}</p>
-                <p>By: {{ review.user }}</p>
-                <p>Date Added: {{ review.date_added }}</p>
+                <div class="review-header">
+                    <h2 class="card-title">{{ review.heading }}</h2>
+                    <h5 >By {{ review.user }}</h5>
+                    <h6 >Date Added: {{ review.date }}</h6>
+                </div>
+                <div class ="review-body">
+                    <p class="card-text">{{ review.review_body }}</p>
+                </div>
             </div>
         {% endfor %}
     </div>
-    <a href="{% url 'add_review' %}">Add a Review</a>
-<script>
-    document.getElementById("add-review-button").addEventListener("click", function() {
-        var isUserLoggedIn = {{ user.is_authenticated }};
-    if (!isUserLoggedIn) {
-        alert("Please log in to add a review");
-    }
-});
+<div class="text-center">
+    <a href="{% url 'add_review' %}" class="btn btn-primary btn-lg" style="color: #fff; background-color: #003a0f; font-size: 20px;">Add a Review</a>
+</div>
+    <script>
+        document.getElementById("add-review-button").addEventListener("click", function () {
+            var isUserLoggedIn = {{ user.is_authenticated }};
+            if (!isUserLoggedIn) {
+                alert("Please log in to add a review");
+            }
+        });
 
-</script>
-</body>
+    </script>
+    </body>
 {% endblock %}

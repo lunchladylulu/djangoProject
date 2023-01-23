@@ -1,5 +1,5 @@
 from django.db.models import Q
-
+from django.core import serializers
 from .models import Review
 import folium as folium
 import requests
@@ -8,6 +8,7 @@ from django.contrib import messages
 from myapp import support_functions
 from myapp.models import Currency, AccountHolder, Itinerary
 from django.contrib.auth.forms import UserCreationForm
+import json
 
 # Create your views here.
 
@@ -190,11 +191,8 @@ def west_coast(request):
 
     results = Itinerary.objects.filter(Q(city="Los Angeles") | Q(city="San Francisco"))
     for result in results:
-        if (str(result.length) + " days in " + result.city) not in temp_list:
-            temp_list.append((str(result.length) + " days in " + result.city))
-        continue
-
-    data['trip_results'] = results
+        temp_list.append((str(result.length) + " days in " + result.city))
+    data['trip_results'] = list(results.values('length', 'city'))
     data['list_of_itineraries'] = temp_list
 
     return render(request, 'west_coast.html', context=data)
@@ -246,11 +244,12 @@ def east_coast(request):
 
     results = Itinerary.objects.filter(Q(city="New York") | Q(city="Chicago"))
     for result in results:
-        if (str(result.length) + " days in " + result.city) not in temp_list:
-            temp_list.append((str(result.length) + " days in " + result.city))
-        continue
+        temp_list.append((str(result.length) + " days in " + result.city))
 
     data['trip_results'] = results
     data['list_of_itineraries'] = temp_list
 
     return render(request, 'west_coast.html', context=data)
+
+
+

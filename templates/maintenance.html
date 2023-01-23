@@ -2,19 +2,26 @@
 {% block content %}
 <body>
 {% if user.is_superuser %}
-    <h1>Maintenance operations</h1>
-    Please select a maintenance action
-    <form action="" method="get">
-        <input type="radio" id="currencies" name="selection" value="currencies">
-        <label for="currencies">Update the list of currencies</label><br>
-        <input type="radio" id="rates" name="selection" value="rates">
-        <label for="rates">Update cross rates</label><br>
-        <input type="radio" id="fill_trip_db" name="selection" value="fill_trip_db">
-        <label for="fill_trip_db">Update the list of trips</label><br>
-        <input type="radio" id="delete_trip_db" name="selection" value="delete_trip_db">
-        <label for="delete_trip_db">Delete the list of trips</label><br>
-        <input name="update" value="SUBMIT ACTION" type="submit">
-    </form>
+    <h1 class="text-center">Maintenance Operations</h1>
+<p class="text-center">Please select a maintenance action</p>
+<form action="" method="get" class="text-center">
+    <div class="form-group">
+        <label for="fill_trip_db" class="control-label">Update the list of trips</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="fill_trip_db" name="selection" value="fill_trip_db">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="delete_trip_db" class="control-label">Delete the list of trips</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="delete_trip_db" name="selection" value="delete_trip_db">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Submit Action</button>
+    </div>
+</form>
+
 {% else %}
 ACCESS DENIED!
 {% endif %}

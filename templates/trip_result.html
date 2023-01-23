@@ -1,26 +1,24 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <body>
 
-These are your results. Results on this page must depend on the two user inputs for destination and length.
-
-<br>
-<br>
-
 <h2 class="lobster">This is your itinerary for {{ length_input }} days in {{ city_input }}</h2>
 
-        <table class="customTable">
-                <tr style="width:150%">
-                    <th>Location</th>
-                    <th>Time of Day</th>
-                    <th>Type of Activity</th>
-                    <th>Day 1</th>
-                    <th>Day 2</th>
-                    <th>Day 3</th>
-                    <th>Day 4</th>
-                </tr>
-            {% for result in trip_results %}
+        <table class="customTable table table-striped">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Time of Day</th>
+            <th>Type of Activity</th>
+            <th>Day 1</th>
+            <th>Day 2</th>
+            <th>Day 3</th>
+            <th>Day 4</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in trip_results %}
             <tr>
                 <td>{{ result.city }}</td>
                 <td>{{ result.time_of_day }}</td>
@@ -30,9 +28,10 @@ These are your results. Results on this page must depend on the two user inputs 
                 <td>{{ result.day_3 }}</td>
                 <td>{{ result.day_4 }}</td>
             </tr>
-            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
 
-        </table>
 
 
 </body>

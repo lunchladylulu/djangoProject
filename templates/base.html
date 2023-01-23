@@ -6,45 +6,59 @@
     <title>Voyage Vault</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&family=Alegreya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&family=Alegreya&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
-<div class="collapse navbar-collapse bg-nav" id="navbarNav">
-    <div class="row">
-        <ul class="navbar-nav col-8 ">
-            <li class="nav-item {% if page == "home" %} active {% endif %}">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item {% if page == "form" %} active {% endif %}">
-                <a class="nav-link" href="{% url 'form' %}">Add an Itinerary</a>
-            </li>
-            <li class="nav-item {% if page == "trip_result" %} active {% endif %}">
-                <a class="nav-link" href="{% url 'trip_result' %}">Explore</a>
-            </li>
-            <li class="nav-item {% if page == "reviews" %} active {% endif %}">
-                <a class="nav-link" href="{% url 'reviews' %}">Reviews</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto col-4">
-            {% if user.username %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ user.username }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register_user' %}">Register</a>
-                </li>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div id="navbar">
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <span><a href={% url 'home' %}>&nbsp;Home</a></span>
+            <span><a href={% url 'form' %}>&nbsp;Add an Itinerary</a></span>
+            <span><a href="{% url 'east_coast' %}">&nbsp;Explore the East Coast</a></span>
+            <span><a href="{% url 'west_coast' %}">&nbsp;Explore the West Coast</a></span>
+            <span><a href="{% url 'reviews' %}">&nbsp;Reviews</a></span>
+            {% if user.is_superuser %}
+                <span>Super Users Only:</span>
+                <span>    <a href="{% url 'maintenance' %}">Do maintenance</a><br></span>
+
             {% endif %}
-        </ul>
+
+            {% if user.username %}
+                {#                <span class="large-font">Hello&nbsp;{{ user.username }}!</span><br>#}
+                <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+                {#                <span class="large-font">Hello&nbsp;Guest&nbsp;User!</span><br>#}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register_user' %}">Register</a>
+            {% endif %}
+        </div>
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+            {% if page == "home" %}
+                <a class="active" style="margin-left: 48px; float: left; text-align: center"
+                   href={% url 'home' %}>Home</a>
+            {% else %}
+                <a style="margin-left: 48px; float: left; text-align: center" href={% url 'home' %}>Home</a>
+            {% endif %}
+            {% if page == "form" %}
+                <a class="active" style="float: left; text-align: center" href={% url 'form' %}>Add an Itinerary</a>
+            {% else %}
+                <a style="float: left; text-align: center" href={% url 'form' %}>Add an Itinerary</a>
+            {% endif %}
+            {% if page == "reviews" %}
+                <a class="active" style="float: left; text-align: center" href={% url 'reviews' %}>Reviews</a>
+            {% else %}
+                <a style="float: left; text-align: center" href={% url 'reviews' %}>Reviews</a>
+            {% endif %}
+            {% if user.username %}
+                <a style="float: right">Hello&nbsp;{{ user.username }}!</a>
+            {% else %}
+                <a style="float: right">Hello&nbsp;Guest&nbsp;User!</a>
+            {% endif %}
+        </div>
     </div>
-</div>
 </head>
 <body>
 {% if messages %}
@@ -54,11 +68,11 @@
         {% endfor %}
     </ul>
 {% endif %}
- {% block content %}
- <-- This is where the page content will go! -->
- {% endblock %}
- <br><br>
- <footer>
+{% block content %}
+    <-- This is where the page content will go! -->
+{% endblock %}
+<br><br>
+<footer>
     ©2023 Columbia Business School. Webapp Programming in Python - Team 6. All Rights Reserved.
 </footer>
 <script>
